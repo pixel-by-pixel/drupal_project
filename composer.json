@@ -1,0 +1,54 @@
+{
+    "name": "pixel-by-pixel/drupal_project",
+    "description": "Drupal project with composer",
+    "type": "project",
+    "require": {
+        "cohesion/dx8": "^5.4",
+        "cohesion/dx8-theme": "^5.4",	
+        "drupal-composer/drupal-project": "8.x-dev",
+        "drush/drush": "*",
+        "pixel-by-pixel/pixel_dx8_theme": "*"
+    },
+    "authors": [
+    ],
+    "repositories": {
+        "0": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+		"dx8": {
+            "type": "vcs",
+            "url": "https://bitbucket.org/cohesion_dev/dx8-module.git"
+        },
+        "dx8-theme": {
+            "type": "vcs",
+            "url": "https://bitbucket.org/cohesion_dev/dx8-theme.git"
+        }
+    },	
+    "minimum-stability": "dev",
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/{$name}": ["type:drupal-drush"],
+			"web/modules/custom/{$name}": ["type:drupal-custom-module"],
+			"web/themes/custom/{$name}": ["type:drupal-custom-theme"]
+        },
+        "drupal-scaffold": {
+            "initial": {
+                ".editorconfig": "../.editorconfig",
+                ".gitattributes": "../.gitattributes"
+            }
+        }
+    }	
+}
